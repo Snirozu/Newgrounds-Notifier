@@ -1,0 +1,13 @@
+html, body {
+  width: 300px;
+  background-color: rgb(15, 11, 12);
+  color: rgb(201, 190, 190);
+
+  font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.AccentColor {
+  color: rgb(253, 162, 56);
+}

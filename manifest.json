@@ -1,0 +1,27 @@
+{
+    "author": "Snirozu",
+    "name": "Newgrounds Notifier",
+    "description": "Notifies you when you get a notification from Newgrounds.",
+    "version": "1.0",
+    "homepage_url": "https://github.com/Snirozu/Newgrounds-Notifier",
+    "icons": {
+        "48": "icon/ng_logo.png"
+    },
+    "background": {
+        "scripts": [
+            "main.js"
+        ],
+        "persistent": true,
+        "type": "module"
+    },
+    "browser_action": {
+        "default_title": "Newgrounds Notifier",
+        "default_icon" : "icon/ng_logo.png",
+        "default_popup": "popup/index.html"
+    },
+    "permissions": [
+        "https://www.newgrounds.com/checknotifications",
+        "notifications"
+    ],
+    "manifest_version": 2
+}
