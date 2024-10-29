@@ -12,7 +12,7 @@ function checkNotifs() {
             const newInteractions = json.interactions - lastInteractions;
 
             if (newMessages > 0 && newInteractions > 0) {
-                browser.notifications.create({
+                browser.notifications.create('ng-notif-all', {
                     title: 'Newgrounds',
                     message: 'You have ' + (newMessages + newInteractions) + ' new notifications!',
                     type: 'basic',
@@ -20,7 +20,7 @@ function checkNotifs() {
                 });
             }
             else if (newMessages > 0) {
-                browser.notifications.create({
+                browser.notifications.create('ng-notif-pm', {
                     title: 'Newgrounds',
                     message: 'You have ' + newMessages + ' new messages!',
                     type: 'basic',
@@ -28,7 +28,7 @@ function checkNotifs() {
                 });
             }
             else if (newInteractions > 0) {
-                browser.notifications.create({
+                browser.notifications.create('ng-notif-inter', {
                     title: 'Newgrounds',
                     message: 'You have ' + newInteractions + ' new interactions!',
                     type: 'basic',
@@ -54,5 +54,19 @@ window.addEventListener("load", (e) => {
         Notification.requestPermission((result) => {
             console.log(result);
         });
+    }
+});
+
+browser.notifications.onClicked.addListener(id => {
+    switch (id) {
+        case 'ng-notif-all':
+            browser.tabs.create({ url: 'https://www.newgrounds.com' });
+            break;
+        case 'ng-notif-pm':
+            browser.tabs.create({ url: 'https://www.newgrounds.com/pm' });
+            break;
+        case 'ng-notif-inter':
+            browser.tabs.create({ url: 'https://www.newgrounds.com/social/feeds/show/interactions' });
+            break;
     }
 });
